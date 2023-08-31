@@ -29,4 +29,4 @@
         # output containerName variable from template
       - run: echo ${{ steps.deploy.outputs.containerName }}
       
-      - run: echo ${{ TEST_ENV }}
+      - run: echo "$TEST_ENV"
