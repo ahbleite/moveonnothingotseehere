@@ -45,5 +45,6 @@
       - uses: actions/download-artifact@v3
         with:
           name: file
+          path: file
           
       - run: ls
