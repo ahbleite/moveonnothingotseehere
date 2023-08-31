@@ -3,7 +3,11 @@
   jobs:
     build-and-deploy:
       runs-on: ubuntu-latest
+      env:
+        TEST_ENV: myfirstenv
+        
       steps:
+        
 
         # Checkout code
       - uses: actions/checkout@main
@@ -24,3 +28,5 @@
 
         # output containerName variable from template
       - run: echo ${{ steps.deploy.outputs.containerName }}
+      
+      - run: echo ${{ TEST_ENV }}
