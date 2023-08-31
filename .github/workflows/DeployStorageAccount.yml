@@ -3,11 +3,12 @@
   jobs:
     build:
       runs-on: ubuntu-latest
+      
       steps:
       - run: touch test.myfile
       - run: ls
       
-      - uses: actions/upload-artifact
+      - uses: actions/upload-artifact@v3
         with:
           name: file
           path: test.myfile
@@ -41,7 +42,7 @@
       
       - run: echo "$TEST_ENV"
       
-      - uses: actions/download-artifact
+      - uses: actions/download-artifact@v3
         with:
           name: file
           
