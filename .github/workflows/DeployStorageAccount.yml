@@ -1,13 +1,23 @@
   on: workflow_dispatch
   name: Azure ARM
   jobs:
-    build-and-deploy:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+      - run: touch test.myfile
+      - run: ls
+      
+      - uses: actions/upload-artifact
+        with:
+          name: file
+          path: test.myfile
+    
+    deploy:
       runs-on: ubuntu-latest
       env:
         TEST_ENV: myfirstenv
         
       steps:
-        
 
         # Checkout code
       - uses: actions/checkout@main
@@ -30,3 +40,9 @@
       - run: echo ${{ steps.deploy.outputs.containerName }}
       
       - run: echo "$TEST_ENV"
+      
+      - uses: actions/download-artifact
+        with:
+          name: file
+          
+      - run: ls
