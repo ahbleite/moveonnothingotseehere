@@ -14,6 +14,7 @@
           path: test.myfile
     
     deploy:
+      needs: build
       runs-on: ubuntu-latest
       env:
         TEST_ENV: myfirstenv
